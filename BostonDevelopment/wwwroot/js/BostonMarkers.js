@@ -29,15 +29,15 @@ function initMap() {
             return function() {
 
               var contentString = '<div id="content">'+
-               '<div id="siteNotice">'+
-               '</div>'+
-               '<h1 id="firstHeading" class="firstHeading"></h1>'+
-               '<div id="bodyContent">'+
-               
-               '<p><img src = ""'+
-               '</p>'+
-               '</div>'+
-               '</div>';
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading"></h1>'+
+            '<div id="bodyContent">'+
+            '<p><b></b></p>'+
+
+            '</div>'+
+            '</div>';
+
 
               infowindow.setContent(contentString);
               infowindow.open(map, marker);
