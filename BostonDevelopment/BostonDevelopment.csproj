@@ -17,4 +17,11 @@
   <ItemGroup>
     <Compile Remove="Constants.js" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="wwwroot\js\BostonMarkers2.js" />
+    <None Remove="Markers.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\js\BostonMarkers2.js" />
+  </ItemGroup>
 </Project>
