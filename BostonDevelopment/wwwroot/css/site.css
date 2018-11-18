@@ -2,7 +2,7 @@
 .tr-map {
     left: 0;
     right: 0;
-    height: 90%;
+    height: 100%;
     overflow-x: hidden !important;
     position: initial !important;
     margin-top: -1em;
@@ -14,8 +14,9 @@
 }
 
 body {
-    padding-top: 30px;
-    padding-bottom: 20px;
+    padding-top: 70px;
+    /*padding-bottom: 20px;*/
+    height: 100%;
 }
 
 /* Wrapping element */

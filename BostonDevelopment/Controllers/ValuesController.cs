@@ -3,29 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using BostonBuild.Models;
+using BostonDevelopment.Models;
+using Newtonsoft.Json;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using BostonDevelopment;
 
-namespace BostonBuild.Controllers
+
+namespace BostonDevelopment.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<Location> Get()
-        {
-            /* temporary dummy data */
-            Location[] locs = new Location[]{
 
-                new Location { Lat = (float)(42.329165) , Long=(float)(-71.10645)},
-                new Location { Lat = (float)(42.349179) , Long=(float)(-71.106476)}
-            };
-            return locs;
+		private readonly MongoClient _client;
+		private readonly IMongoDatabase _db;
+		IMongoCollection<Build> _blds;
 
-        }
+        public ValuesController()
+		{
+			_client = new MongoClient(Constants.MongoConnectionString);
+            _db = _client.GetDatabase(Constants.BuildDb);
+            _blds = _db.GetCollection<Build>(Constants.BuildCollection);
+		}
 
-        // GET api/values/5
-        [HttpGet("{id}")]
+		// GET: api/values
+		[HttpGet]
+        public IEnumerable<Build> Get()
+		{
+            return _blds.AsQueryable<Build>().ToList();
+		}
+
+
+		// GET api/values/5
+		[HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
