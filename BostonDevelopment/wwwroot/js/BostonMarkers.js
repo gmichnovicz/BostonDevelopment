@@ -2,11 +2,11 @@
 var map;
 var infowindow;
 function initMap() {
-  var boston ={lat: 42.349179, lng: -71.106476};
+  var boston ={lat: 42.349189, lng: -71.086476};
 
   var mapOptions = {
     center: new google.maps.LatLng(boston.lat,boston.lng),
-    zoom: 13
+    zoom: 14
 
   };
 
@@ -26,7 +26,6 @@ function initMap() {
           infowindow = new google.maps.InfoWindow();
           google.maps.event.addListener(marker, 'click', (function(marker, key) {
             return function() {
-              var x = 'OK'
 
               var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
